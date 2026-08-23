@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BloodBank - Available Blood</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav>
+    <div class="logo">BloodBank</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="available-blood.html">Available Blood</a>
+        <a href="donation-camps.html">Donation Camps</a>
+        <a href="login.html">Login</a>
+    </div>
+</nav>
+
+<section class="filters">
+    <select>
+        <option value="">Blood Group</option>
+        <option>O+</option>
+        <option>O-</option>
+        <option>A+</option>
+        <option>A-</option>
+        <option>B+</option>
+        <option>B-</option>
+        <option>AB+</option>
+        <option>AB-</option>
+    </select>
+
+    <select>
+        <option value="">City</option>
+        <option>Pune</option>
+        <option>Mumbai</option>
+        <option>Nagpur</option>
+        <option>Nashik</option>
+    </select>
+
+    <button class="btn">Search</button>
+</section>
+
+<section class="blood-grid">
+
+    <div class="blood-card">
+        <h3>City Blood Bank - Pune</h3>
+        <div class="blood-row"><span>O+</span><span>12 units</span></div>
+        <div class="blood-row"><span>A+</span><span>5 units</span></div>
+        <div class="blood-row"><span>B+</span><span class="unavailable">Reserved</span></div>
+    </div>
+
+    <div class="blood-card">
+        <h3>LifeCare Blood Bank - Mumbai</h3>
+        <div class="blood-row"><span>O-</span><span>8 units</span></div>
+        <div class="blood-row"><span>AB+</span><span>3 units</span></div>
+    </div>
+
+    <div class="blood-card">
+        <h3>Red Cross - Nagpur</h3>
+        <div class="blood-row"><span>B-</span><span class="unavailable">Expired</span></div>
+        <div class="blood-row"><span>A-</span><span>6 units</span></div>
+    </div>
+
+</section>
+
+<script src="js/main.js"></script>
+</body>
+</html>
