@@ -212,3 +212,88 @@ form input {
     padding: 14px;
     font-size: 16px;
 }
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 220px;
+    background: #2c2c2c;
+    color: #fff;
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar .logo {
+    color: #fff;
+    padding: 0 24px 24px;
+    font-size: 20px;
+}
+
+.sidebar a {
+    color: #ccc;
+    text-decoration: none;
+    padding: 14px 24px;
+}
+
+.sidebar a:hover {
+    background: #3a3a3a;
+}
+
+.sidebar a.active {
+    background: #c0392b;
+    color: #fff;
+}
+
+.dashboard-main {
+    flex: 1;
+    padding: 40px;
+    background: #fafafa;
+}
+
+.dash-cards {
+    display: flex;
+    gap: 20px;
+    margin: 24px 0;
+}
+
+.dash-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px 30px;
+    text-align: center;
+    flex: 1;
+}
+
+.dash-card p {
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.dash-card h3 {
+    color: #c0392b;
+    font-size: 22px;
+}
+
+.upcoming-camps {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.upcoming-camps h3 {
+    margin-bottom: 16px;
+}
+
+.camp-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
