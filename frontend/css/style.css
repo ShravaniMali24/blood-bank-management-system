@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    border-bottom: 2px solid #ddd;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 22px;
+    color: #c0392b;
+}
+
+.nav-links a {
+    margin-left: 24px;
+    text-decoration: none;
+    color: #333;
+}
+
+.nav-links a:hover {
+    color: #c0392b;
+}
+
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: #fdf2f2;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 16px;
+}
+
+.hero p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    margin: 0 10px;
+    background: #c0392b;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.btn-outline {
+    background: transparent;
+    color: #c0392b;
+    border: 2px solid #c0392b;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 50px 20px;
+}
+
+.stat-box {
+    text-align: center;
+}
+
+.stat-box h3 {
+    font-size: 28px;
+    color: #c0392b;
+}
+
+footer {
+    text-align: center;
+    padding: 24px;
+    background: #333;
+    color: #ccc;
+}
