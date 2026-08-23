@@ -367,3 +367,51 @@ form input {
     font-size: 14px;
     padding: 8px 20px;
 }
+.camp-detail-box {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.camp-detail-box h3 {
+    margin-bottom: 10px;
+}
+
+.camp-detail-box p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.confirm-btn {
+    border: none;
+    cursor: pointer;
+    padding: 12px 30px;
+    margin-bottom: 30px;
+}
+
+.my-camps {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.status {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.status.registered {
+    background: #fdecea;
+    color: #c0392b;
+}
+
+.status.attended {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
