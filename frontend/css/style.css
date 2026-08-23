@@ -297,3 +297,33 @@ form input {
     border-bottom: 1px solid #eee;
     font-size: 14px;
 }
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.profile-field {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 16px 20px;
+}
+
+.profile-field p {
+    color: #888;
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.profile-field.readonly h4 {
+    color: #aaa;
+}
+
+.edit-btn {
+    border: none;
+    cursor: pointer;
+    padding: 12px 30px;
+}
