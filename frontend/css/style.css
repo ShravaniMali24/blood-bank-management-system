@@ -88,3 +88,82 @@ footer {
     background: #333;
     color: #ccc;
 }
+.login-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background: #fdf2f2;
+}
+
+.login-card {
+    background: #fff;
+    padding: 40px;
+    width: 360px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.login-card h2 {
+    margin-bottom: 20px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.tab {
+    padding: 8px 16px;
+    border: 1px solid #c0392b;
+    background: transparent;
+    color: #c0392b;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.tab.active {
+    background: #c0392b;
+    color: #fff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+form label {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 4px;
+    margin-top: 12px;
+}
+
+form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.login-btn {
+    margin-top: 24px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.login-links {
+    margin-top: 16px;
+    font-size: 13px;
+    color: #555;
+}
+
+.login-links a {
+    color: #c0392b;
+    text-decoration: none;
+}
