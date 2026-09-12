@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloodBank - Hospital Request Status</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+        <div class="logo">BloodBank</div>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="request.html">Blood Request</a>
+        <a href="status.html" class="active">Request Status</a>
+        <a href="../login.html">Logout</a>
+    </aside>
+
+    <main class="dashboard-main">
+        <div class="section-header">
+            <div>
+                <h2>Request Status & Tracking</h2>
+                <p style="color: #666; font-size: 14px; margin-top: 4px;">Monitor blood unit requisitions, allocations, and dispatch status.</p>
+            </div>
+            <a href="request.html" class="btn">+ New Request</a>
+        </div>
+
+        <section class="table-container">
+            <div class="table-filters">
+                <input type="text" class="search-input table-search-input" data-table="hospitalStatusTable" placeholder="Search by Request ID, blood group, or bank...">
+                <div>
+                    <span style="font-size: 13px; color: #666;">Showing <strong>5</strong> past requisitions</span>
+                </div>
+            </div>
+
+            <table class="data-table" id="hospitalStatusTable">
+                <thead>
+                    <tr>
+                        <th>Request ID</th>
+                        <th>Date Requested</th>
+                        <th>Blood Group</th>
+                        <th>Units</th>
+                        <th>Priority</th>
+                        <th>Assigned Blood Bank</th>
+                        <th>Status</th>
+                        <th>Delivery Mode</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>#REQ-8831</strong></td>
+                        <td>12 Sep 2026</td>
+                        <td><strong>O-</strong></td>
+                        <td>2</td>
+                        <td><span class="badge badge-critical">Critical</span></td>
+                        <td>City Blood Bank - Pune</td>
+                        <td><span class="badge badge-pending">Pending Allocation</span></td>
+                        <td>Emergency Courier</td>
+                    </tr>
+                    <tr>
+                        <td><strong>#REQ-8790</strong></td>
+                        <td>10 Sep 2026</td>
+                        <td><strong>A+</strong></td>
+                        <td>4</td>
+                        <td><span class="badge badge-urgent">Urgent</span></td>
+                        <td>LifeCare Blood Bank - Pune</td>
+                        <td><span class="badge badge-approved">Approved &bull; Dispatched</span></td>
+                        <td>Cold Chain Transit</td>
+                    </tr>
+                    <tr>
+                        <td><strong>#REQ-8755</strong></td>
+                        <td>08 Sep 2026</td>
+                        <td><strong>B-</strong></td>
+                        <td>1</td>
+                        <td><span class="badge badge-urgent">Urgent</span></td>
+                        <td>Red Cross - Pune</td>
+                        <td><span class="badge badge-rejected">Units Unavailable</span></td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td><strong>#REQ-8742</strong></td>
+                        <td>06 Sep 2026</td>
+                        <td><strong>B+</strong></td>
+                        <td>3</td>
+                        <td><span class="badge badge-normal">Normal</span></td>
+                        <td>Red Cross Blood Bank</td>
+                        <td><span class="badge badge-fulfilled">Delivered & Received</span></td>
+                        <td>Hospital Pickup</td>
+                    </tr>
+                    <tr>
+                        <td><strong>#REQ-8699</strong></td>
+                        <td>01 Sep 2026</td>
+                        <td><strong>AB+</strong></td>
+                        <td>1</td>
+                        <td><span class="badge badge-normal">Normal</span></td>
+                        <td>City Blood Bank - Pune</td>
+                        <td><span class="badge badge-fulfilled">Delivered & Received</span></td>
+                        <td>Hospital Pickup</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+</div>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

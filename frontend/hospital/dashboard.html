@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloodBank - Hospital Dashboard</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+        <div class="logo">BloodBank</div>
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="request.html">Blood Request</a>
+        <a href="status.html">Request Status</a>
+        <a href="../login.html">Logout</a>
+    </aside>
+
+    <main class="dashboard-main">
+        <div class="section-header">
+            <div>
+                <h2>Hospital Dashboard</h2>
+                <p style="color: #666; font-size: 14px; margin-top: 4px;">City Care Multispeciality Hospital &bull; Pune Branch</p>
+            </div>
+            <a href="request.html" class="btn">+ New Blood Request</a>
+        </div>
+
+        <div class="dash-cards">
+            <div class="dash-card">
+                <p>Total Requests</p>
+                <h3>18</h3>
+            </div>
+            <div class="dash-card">
+                <p>Pending Requests</p>
+                <h3 style="color: #f39c12;">3</h3>
+            </div>
+            <div class="dash-card">
+                <p>Units Received</p>
+                <h3 style="color: #27ae60;">42</h3>
+            </div>
+            <div class="dash-card">
+                <p>Critical Emergencies</p>
+                <h3>2</h3>
+            </div>
+        </div>
+
+        <div class="stat-alert-box">
+            <strong>Regional Inventory Advisory:</strong> O- and B- blood units are running critically low in Pune regional blood banks. Please reserve emergency units carefully.
+        </div>
+
+        <section class="table-container" style="margin-top: 24px;">
+            <div class="section-header">
+                <h3>Recent Blood Requests</h3>
+                <a href="status.html" class="btn btn-outline" style="font-size: 13px; padding: 6px 14px;">View All Requests</a>
+            </div>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Request ID</th>
+                        <th>Date</th>
+                        <th>Blood Group</th>
+                        <th>Units</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                        <th>Assigned Blood Bank</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>#REQ-8831</strong></td>
+                        <td>12 Sep 2026</td>
+                        <td><strong>O-</strong></td>
+                        <td>2</td>
+                        <td><span class="badge badge-critical">Critical</span></td>
+                        <td><span class="badge badge-pending">Pending</span></td>
+                        <td>City Blood Bank - Pune</td>
+                    </tr>
+                    <tr>
+                        <td><strong>#REQ-8790</strong></td>
+                        <td>10 Sep 2026</td>
+                        <td><strong>A+</strong></td>
+                        <td>4</td>
+                        <td><span class="badge badge-urgent">Urgent</span></td>
+                        <td><span class="badge badge-approved">Approved</span></td>
+                        <td>LifeCare Blood Bank - Pune</td>
+                    </tr>
+                    <tr>
+                        <td><strong>#REQ-8742</strong></td>
+                        <td>06 Sep 2026</td>
+                        <td><strong>B+</strong></td>
+                        <td>3</td>
+                        <td><span class="badge badge-normal">Normal</span></td>
+                        <td><span class="badge badge-fulfilled">Fulfilled</span></td>
+                        <td>Red Cross Blood Bank</td>
+                    </tr>
+                    <tr>
+                        <td><strong>#REQ-8699</strong></td>
+                        <td>01 Sep 2026</td>
+                        <td><strong>AB+</strong></td>
+                        <td>1</td>
+                        <td><span class="badge badge-normal">Normal</span></td>
+                        <td><span class="badge badge-fulfilled">Fulfilled</span></td>
+                        <td>City Blood Bank - Pune</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+</div>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

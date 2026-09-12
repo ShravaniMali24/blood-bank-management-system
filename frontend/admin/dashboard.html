@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloodBank - Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="dashboard-layout">
+
+    <!-- Admin Dark Left Sidebar -->
+    <aside class="sidebar admin-sidebar">
+        <div class="logo">BloodBank <span style="font-size: 11px; opacity: 0.8; display: block; font-weight: normal; color: #f5c6cb;">Admin Portal</span></div>
+        <a href="#overview" data-section="section-overview" class="active">Overview</a>
+        <a href="#donors" data-section="section-donors">Donors</a>
+        <a href="#blood-units" data-section="section-blood-units">Blood Units</a>
+        <a href="#hospitals" data-section="section-hospitals">Hospitals</a>
+        <a href="#blood-requests" data-section="section-blood-requests">Blood Requests</a>
+        <a href="#camps" data-section="section-camps">Donation Camps</a>
+        <a href="../login.html" style="margin-top: auto;">Logout</a>
+    </aside>
+
+    <!-- Main Content with switchable sections -->
+    <main class="dashboard-main">
+
+        <!-- ==================== SECTION 1: OVERVIEW ==================== -->
+        <section id="section-overview" class="admin-section active">
+            <div class="section-header">
+                <div>
+                    <h2>Central Administration Overview</h2>
+                    <p style="color: #666; font-size: 14px; margin-top: 4px;">Real-time metrics and system-wide monitoring.</p>
+                </div>
+            </div>
+
+            <div class="dash-cards">
+                <div class="dash-card">
+                    <p>Total Registered Donors</p>
+                    <h3>1,240</h3>
+                </div>
+                <div class="dash-card">
+                    <p>Blood Units In Stock</p>
+                    <h3 style="color: #27ae60;">342</h3>
+                </div>
+                <div class="dash-card">
+                    <p>Partner Hospitals</p>
+                    <h3 style="color: #2980b9;">24</h3>
+                </div>
+                <div class="dash-card">
+                    <p>Pending Requests</p>
+                    <h3 style="color: #e65100;">7</h3>
+                </div>
+                <div class="dash-card">
+                    <p>Active Camps</p>
+                    <h3>4</h3>
+                </div>
+            </div>
+
+            <div class="stat-alert-box">
+                <strong>Critical Stock Warning:</strong> 3 regional blood banks report O-negative supply below reserve thresholds (&lt; 10 units total). 2 emergency requisitions awaiting allocation.
+            </div>
+
+            <!-- Urgent Requests Preview in Overview -->
+            <div class="table-container">
+                <div class="section-header">
+                    <h3>Urgent Hospital Requisitions Awaiting Approval</h3>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Request ID</th>
+                            <th>Hospital</th>
+                            <th>Blood Group</th>
+                            <th>Units</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>#REQ-8831</strong></td>
+                            <td>City Care Multispeciality (Pune)</td>
+                            <td><strong>O-</strong></td>
+                            <td>2</td>
+                            <td><span class="badge badge-critical">Critical</span></td>
+                            <td class="status-cell"><span class="badge badge-pending">Pending</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-success admin-request-action" data-action="approve">Approve</button>
+                                <button class="btn btn-sm btn-danger admin-request-action" data-action="reject">Reject</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>#REQ-8835</strong></td>
+                            <td>Sahyadri Super Specialty (Pune)</td>
+                            <td><strong>AB-</strong></td>
+                            <td>1</td>
+                            <td><span class="badge badge-urgent">Urgent</span></td>
+                            <td class="status-cell"><span class="badge badge-pending">Pending</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-success admin-request-action" data-action="approve">Approve</button>
+                                <button class="btn btn-sm btn-danger admin-request-action" data-action="reject">Reject</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>#REQ-8840</strong></td>
+                            <td>KEM Hospital (Mumbai)</td>
+                            <td><strong>B-</strong></td>
+                            <td>2</td>
+                            <td><span class="badge badge-urgent">Urgent</span></td>
+                            <td class="status-cell"><span class="badge badge-pending">Pending</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-success admin-request-action" data-action="approve">Approve</button>
+                                <button class="btn btn-sm btn-danger admin-request-action" data-action="reject">Reject</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 2: DONORS ==================== -->
+        <section id="section-donors" class="admin-section">
+            <div class="section-header">
+                <div>
+                    <h2>Registered Donors</h2>
+                    <p style="color: #666; font-size: 14px; margin-top: 4px;">Manage donor profiles, contact information, and donation eligibility.</p>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <div class="table-filters">
+                    <input type="text" class="search-input table-search-input" data-table="adminDonorsTable" placeholder="Search donors by name, blood group, city, phone...">
+                    <span style="font-size: 13px; color: #666;">Showing <strong>6</strong> registered donors</span>
+                </div>
+
+                <table class="data-table" id="adminDonorsTable">
+                    <thead>
+                        <tr>
+                            <th>Donor ID</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Blood Group</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>City</th>
+                            <th>Weight</th>
+                            <th>Eligibility</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>#DNR-1001</strong></td>
+                            <td>Aarav Sharma</td>
+                            <td>Male</td>
+                            <td><span class="badge" style="background:#fdecea; color:#c0392b;">O+</span></td>
+                            <td>9876510000</td>
+                            <td>aarav.sharma@example.com</td>
+                            <td>Pune</td>
+                            <td>68 kg</td>
+                            <td><span class="badge badge-approved">Eligible</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>#DNR-1002</strong></td>
+                            <td>Priya Patel</td>
+                            <td>Female</td>
+                            <td><span class="badge" style="background:#fdecea; color:#c0392b;">A+</span></td>
+                            <td>9822012345</td>
+                            <td>priya.patel@example.com</td>
+                            <td>Mumbai</td>
+                            <td>54 kg</td>
+                            <td><span class="badge badge-approved">Eligible</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>#DNR-1003</strong></td>
+                            <td>Rohan Kulkarni</td>
+                            <td>Male</td>
+                            <td><span class="badge" style="background:#fdecea; color:#c0392b;">B+</span></td>
+                            <td>9890123456</td>
+                            <td>rohan.k@example.com</td>
+                            <td>Pune</td>
+                            <td>72 kg</td>
+                            <td><span class="badge badge-approved">Eligible</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>#DNR-1004</strong></td>
+                            <td>Ananya Deshmukh</td>
+                            <td>Female</td>
+                            <td><span class="badge" style="background:#fdecea; color:#c0392b;">O-</span></td>
+                            <td>9765432109</td>
+                            <td>ananya.d@example.com</td>
+                            <td>Nagpur</td>
+                            <td>51 kg</td>
+                            <td><span class="badge badge-rejected">Not Eligible (Recent)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>#DNR-1005</strong></td>
+                            <td>Vikram Joshi</td>
+                            <td>Male</td>
+                            <td><span class="badge" style="background:#fdecea; color:#c0392b;">AB+</span></td>
+                            <td>9422334455</td>
+                            <td>vikram.j@example.com</td>
+                            <td>Nashik</td>
+                            <td>80 kg</td>
+                            <td><span class="badge badge-approved">Eligible</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>#DNR-1006</strong></td>
+                            <td>Neha Gupta</td>
+                            <td>Female</td>
+                            <td><span class="badge" style="background:#fdecea; color:#c0392b;">B-</span></td>
+                            <td>9833445566</td>
+                            <td>neha.gupta@example.com</td>
+                            <td>Mumbai</td>
+                            <td>48 kg</td>
+                            <td><span class="badge badge-rejected">Underweight (&lt;50kg)</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 3: BLOOD UNITS ==================== -->
+        <section id="section-blood-units" class="admin-section">
+            <div class="section-header">
+                <div>
+                    <h2>Blood Units Inventory</h2>
+                    <p style="color: #666; font-size: 14px; margin-top: 4px;">Track blood units in cold storage across all connected blood banks.</p>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <div class="table-filters">
+                    <input type="text" class="search-input table-search-input" data-table="adminBloodUnitsTable" placeholder="Search by unit ID, bank, blood group, or status...">
+                    <span style="font-size: 13px; color: #666;">Showing <strong>6</strong> inventory batches</span>
+                </div>
+
+                <table class="data-table" id="adminBloodUnitsTable">
+                    <thead>
+                        <tr>
+                            <th>Unit ID</th>
+                            <th>Blood Bank</th>
+                            <th>City</th>
+                            <th>Blood Group</th>
+                            <th>Units Available</th>
+                            <th>Collection Date</th>
+                            <th>Expiry Date</th>
+                            <th>Inventory Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>#UNT-901</strong></td>
+                            <td>City Blood Bank</td>
+                            <td>Pune</td>
+                            <td><strong>O+</strong></td>
+                            <td>12 units</td>
+                            <td>01 Sep 2026</td>
+                            <td>13 Oct 2026</td>
+                            <td><span class="badge badge-approved">Available</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>#UNT-902</strong></td>
+                            <td>City Blood Bank</td>
+                            <td>Pune</td>
+                            <td><strong>A+</strong></td>
+                            <td>5 units</td>
+                            <td>28 Aug 2026</td>
+                            <td>09 Oct 2026</td>
+                            <td><span class="badge badge-approved">Available</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>#UNT-903</strong></td>
+                            <td>LifeCare Blood Bank</td>
+                            <td>Mumbai</td>
+                            <td><strong>O-</strong></td>
+                            <td>8 units</td>
+                            <td>04 Sep 2026</td>
+                            <td>16 Oct 2026</td>
+                            <td><span class="badge badge-approved">Available</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>#UNT-904</strong></td>
+                            <td>LifeCare Blood Bank</td>
+                            <td>Mumbai</td>
+                            <td><strong>AB+</strong></td>
+                            <td>3 units</td>
+                            <td>02 Sep 2026</td>
+                            <td>14 Oct 2026</td>
+                            <td><span class="badge badge-approved">Available</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>#UNT-905</strong></td>
+                            <td>City Blood Bank</td>
+                            <td>Pune</td>
+                            <td><strong>B+</strong></td>
+                            <td>4 units</td>
+                            <td>15 Aug 2026</td>
+                            <td>26 Sep 2026</td>
+                            <td><span class="badge badge-urgent">Reserved</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>#UNT-906</strong></td>
+                            <td>Red Cross Blood Bank</td>
+                            <td>Nagpur</td>
+                            <td><strong>B-</strong></td>
+                            <td>2 units</td>
+                            <td>10 Jul 2026</td>
+                            <td>21 Aug 2026</td>
+                            <td><span class="badge badge-rejected">Expired</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 4: HOSPITALS ==================== -->
+        <section id="section-hospitals" class="admin-section">
+            <div class="section-header">
+                <div>
+                    <h2>Affiliated Hospitals</h2>
+                    <p style="color: #666; font-size: 14px; margin-top: 4px;">Registered hospitals authorized to place blood requisitions.</p>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <div class="table-filters">
+                    <input type="text" class="search-input table-search-input" data-table="adminHospitalsTable" placeholder="Search by hospital name, city, email...">
+                    <span style="font-size: 13px; color: #666;">Showing <strong>5</strong> partner hospitals</span>
+                </div>
+
+                <table class="data-table" id="adminHospitalsTable">
+                    <thead>
+                        <tr>
+                            <th>Hospital ID</th>
+                            <th>Hospital Name</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Contact Phone</th>
+                            <th>Official Email</th>
+                            <th>Requisitions</th>
+                            <th>Account Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>#HSP-201</strong></td>
+                            <td>City Care Multispeciality Hospital</td>
+                            <td>Pune</td>
+                            <td>Maharashtra</td>
+                            <td>020-25678901</td>
+                            <td>contact@citycare.org</td>
+                            <td>18</td>
+                            <td><span class="badge badge-approved">Verified &bull; Active</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>#HSP-202</strong></td>
+                            <td>Sahyadri Super Specialty Hospital</td>
+                            <td>Pune</td>
+                            <td>Maharashtra</td>
+                            <td>020-67213000</td>
+                            <td>bloodbank@sahyadri.com</td>
+                            <td>24</td>
+                            <td><span class="badge badge-approved">Verified &bull; Active</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>#HSP-203</strong></td>
+                            <td>KEM Hospital & Research Center</td>
+                            <td>Mumbai</td>
+                            <td>Maharashtra</td>
+                            <td>022-24107000</td>
+                            <td>emergency@kemhosp.edu</td>
+                            <td>41</td>
+                            <td><span class="badge badge-approved">Verified &bull; Active</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>#HSP-204</strong></td>
+                            <td>Orange City Hospital</td>
+                            <td>Nagpur</td>
+                            <td>Maharashtra</td>
+                            <td>0712-2234567</td>
+                            <td>info@orangecityhosp.in</td>
+                            <td>12</td>
+                            <td><span class="badge badge-approved">Verified &bull; Active</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>#HSP-205</strong></td>
+                            <td>Nashik General Hospital</td>
+                            <td>Nashik</td>
+                            <td>Maharashtra</td>
+                            <td>0253-2345678</td>
+                            <td>support@nashikgen.gov</td>
+                            <td>15</td>
+                            <td><span class="badge badge-approved">Verified &bull; Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 5: BLOOD REQUESTS ==================== -->
+        <section id="section-blood-requests" class="admin-section">
+            <div class="section-header">
+                <div>
+                    <h2>Blood Requisitions Management</h2>
+                    <p style="color: #666; font-size: 14px; margin-top: 4px;">Review, allocate, approve, or decline emergency and routine hospital requests.</p>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <div class="table-filters">
+                    <input type="text" class="search-input table-search-input" data-table="adminRequestsTable" placeholder="Search by request ID, hospital, blood group, status...">
+                    <span style="font-size: 13px; color: #666;">Showing <strong>6</strong> recent requisitions</span>
+                </div>
+
+                <table class="data-table" id="adminRequestsTable">
+                    <thead>
+                        <tr>
+                            <th>Request ID</th>
+                            <th>Hospital</th>
+                            <th>Blood Group</th>
+                            <th>Units</th>
+                            <th>Priority</th>
+                            <th>Date</th>
+                            <th>Current Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>#REQ-8831</strong></td>
+                            <td>City Care Multispeciality Hospital</td>
+                            <td><strong>O-</strong></td>
+                            <td>2</td>
+                            <td><span class="badge badge-critical">Critical</span></td>
+                            <td>12 Sep 2026</td>
+                            <td class="status-cell"><span class="badge badge-pending">Pending</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-success admin-request-action" data-action="approve">Approve</button>
+                                <button class="btn btn-sm btn-danger admin-request-action" data-action="reject">Reject</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>#REQ-8835</strong></td>
+                            <td>Sahyadri Super Specialty</td>
+                            <td><strong>AB-</strong></td>
+                            <td>1</td>
+                            <td><span class="badge badge-urgent">Urgent</span></td>
+                            <td>11 Sep 2026</td>
+                            <td class="status-cell"><span class="badge badge-pending">Pending</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-success admin-request-action" data-action="approve">Approve</button>
+                                <button class="btn btn-sm btn-danger admin-request-action" data-action="reject">Reject</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>#REQ-8840</strong></td>
+                            <td>KEM Hospital</td>
+                            <td><strong>B-</strong></td>
+                            <td>2</td>
+                            <td><span class="badge badge-urgent">Urgent</span></td>
+                            <td>11 Sep 2026</td>
+                            <td class="status-cell"><span class="badge badge-pending">Pending</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-success admin-request-action" data-action="approve">Approve</button>
+                                <button class="btn btn-sm btn-danger admin-request-action" data-action="reject">Reject</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>#REQ-8790</strong></td>
+                            <td>City Care Multispeciality Hospital</td>
+                            <td><strong>A+</strong></td>
+                            <td>4</td>
+                            <td><span class="badge badge-urgent">Urgent</span></td>
+                            <td>10 Sep 2026</td>
+                            <td class="status-cell"><span class="badge badge-approved">Approved</span></td>
+                            <td>
+                                <span style="color:#27ae60;font-size:12px;font-weight:bold;">Dispatched</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>#REQ-8742</strong></td>
+                            <td>Orange City Hospital</td>
+                            <td><strong>B+</strong></td>
+                            <td>3</td>
+                            <td><span class="badge badge-normal">Normal</span></td>
+                            <td>06 Sep 2026</td>
+                            <td class="status-cell"><span class="badge badge-fulfilled">Fulfilled</span></td>
+                            <td>
+                                <span style="color:#1565c0;font-size:12px;font-weight:bold;">Completed</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>#REQ-8755</strong></td>
+                            <td>Nashik General Hospital</td>
+                            <td><strong>B-</strong></td>
+                            <td>1</td>
+                            <td><span class="badge badge-urgent">Urgent</span></td>
+                            <td>08 Sep 2026</td>
+                            <td class="status-cell"><span class="badge badge-rejected">Rejected</span></td>
+                            <td>
+                                <span style="color:#c0392b;font-size:12px;font-weight:bold;">Closed</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 6: DONATION CAMPS ==================== -->
+        <section id="section-camps" class="admin-section">
+            <div class="section-header">
+                <div>
+                    <h2>Donation Camps Administration</h2>
+                    <p style="color: #666; font-size: 14px; margin-top: 4px;">Monitor upcoming donation drives, organizer compliance, and donor turnout.</p>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <div class="table-filters">
+                    <input type="text" class="search-input table-search-input" data-table="adminCampsTable" placeholder="Search by camp name, organizer, venue, or city...">
+                    <span style="font-size: 13px; color: #666;">Showing <strong>4</strong> scheduled camps</span>
+                </div>
+
+                <table class="data-table" id="adminCampsTable">
+                    <thead>
+                        <tr>
+                            <th>Camp ID</th>
+                            <th>Camp Name</th>
+                            <th>Organizer</th>
+                            <th>Date & Time</th>
+                            <th>Venue</th>
+                            <th>City</th>
+                            <th>Registrations</th>
+                            <th>Camp Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>#CMP-101</strong></td>
+                            <td>Blood Donation Camp 1-1</td>
+                            <td>Red Cross Society</td>
+                            <td>16 Aug 2026 &bull; 9:00 - 16:00</td>
+                            <td>Community Hall 1</td>
+                            <td>Pune</td>
+                            <td><strong>48 donors</strong></td>
+                            <td><span class="badge badge-approved">Upcoming</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>#CMP-102</strong></td>
+                            <td>Blood Donation Camp 2-1</td>
+                            <td>Red Cross Society</td>
+                            <td>17 Aug 2026 &bull; 9:00 - 16:00</td>
+                            <td>Community Hall 1</td>
+                            <td>Mumbai</td>
+                            <td><strong>35 donors</strong></td>
+                            <td><span class="badge badge-approved">Upcoming</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>#CMP-103</strong></td>
+                            <td>Blood Donation Camp 3-2</td>
+                            <td>Youth Welfare Society</td>
+                            <td>18 Aug 2026 &bull; 10:00 - 17:00</td>
+                            <td>Community Hall 2</td>
+                            <td>Nagpur</td>
+                            <td><strong>29 donors</strong></td>
+                            <td><span class="badge badge-approved">Upcoming</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>#CMP-104</strong></td>
+                            <td>Blood Donation Camp 4-3</td>
+                            <td>Community Health Group</td>
+                            <td>19 Aug 2026 &bull; 8:30 - 15:30</td>
+                            <td>Community Hall 3</td>
+                            <td>Nashik</td>
+                            <td><strong>22 donors</strong></td>
+                            <td><span class="badge badge-approved">Upcoming</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+</div>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

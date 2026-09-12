@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloodBank - Donation History</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+        <div class="logo">BloodBank</div>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="profile.html">My Profile</a>
+        <a href="camp-register.html">Camp Registrations</a>
+        <a href="history.html" class="active">Donation History</a>
+        <a href="../login.html">Logout</a>
+    </aside>
+
+    <main class="dashboard-main">
+        <div class="section-header">
+            <div>
+                <h2>My Donation History</h2>
+                <p style="color: #666; font-size: 14px; margin-top: 4px;">Donor Record: Aarav Sharma (O+ Positive)</p>
+            </div>
+        </div>
+
+        <div class="dash-cards">
+            <div class="dash-card">
+                <p>Total Donations</p>
+                <h3>5</h3>
+            </div>
+            <div class="dash-card">
+                <p>Volume Donated</p>
+                <h3 style="color: #27ae60;">2,250 ml</h3>
+            </div>
+            <div class="dash-card">
+                <p>Lives Impacted</p>
+                <h3 style="color: #2980b9;">~15</h3>
+            </div>
+            <div class="dash-card">
+                <p>Next Eligibility</p>
+                <h3>28 Sep 2026</h3>
+            </div>
+        </div>
+
+        <section class="table-container" style="margin-top: 24px;">
+            <div class="section-header">
+                <h3>Past Blood Donations</h3>
+            </div>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Donation ID</th>
+                        <th>Date</th>
+                        <th>Donation Venue / Blood Bank</th>
+                        <th>Units</th>
+                        <th>Component</th>
+                        <th>Status</th>
+                        <th>Certificate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>#DON-4405</strong></td>
+                        <td>28 Jun 2026</td>
+                        <td>City Blood Bank - Pune</td>
+                        <td>1 Unit (450ml)</td>
+                        <td>Whole Blood</td>
+                        <td><span class="badge badge-approved">Completed</span></td>
+                        <td><button class="btn btn-sm btn-outline" onclick="showToast('Donor Certificate downloaded for #DON-4405', 'success')">Download</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>#DON-4122</strong></td>
+                        <td>15 Mar 2026</td>
+                        <td>Red Cross Camp 1-1 - Pune</td>
+                        <td>1 Unit (450ml)</td>
+                        <td>Whole Blood</td>
+                        <td><span class="badge badge-approved">Completed</span></td>
+                        <td><button class="btn btn-sm btn-outline" onclick="showToast('Donor Certificate downloaded for #DON-4122', 'success')">Download</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>#DON-3890</strong></td>
+                        <td>02 Dec 2025</td>
+                        <td>Youth Welfare Camp - Pune</td>
+                        <td>1 Unit (450ml)</td>
+                        <td>Whole Blood</td>
+                        <td><span class="badge badge-approved">Completed</span></td>
+                        <td><button class="btn btn-sm btn-outline" onclick="showToast('Donor Certificate downloaded for #DON-3890', 'success')">Download</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>#DON-3501</strong></td>
+                        <td>18 Aug 2025</td>
+                        <td>City Blood Bank - Pune</td>
+                        <td>1 Unit (450ml)</td>
+                        <td>Whole Blood</td>
+                        <td><span class="badge badge-approved">Completed</span></td>
+                        <td><button class="btn btn-sm btn-outline" onclick="showToast('Donor Certificate downloaded for #DON-3501', 'success')">Download</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>#DON-3114</strong></td>
+                        <td>10 May 2025</td>
+                        <td>LifeCare Blood Bank - Pune</td>
+                        <td>1 Unit (450ml)</td>
+                        <td>Whole Blood</td>
+                        <td><span class="badge badge-approved">Completed</span></td>
+                        <td><button class="btn btn-sm btn-outline" onclick="showToast('Donor Certificate downloaded for #DON-3114', 'success')">Download</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+</div>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

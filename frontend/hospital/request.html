@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloodBank - Hospital Blood Request</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+        <div class="logo">BloodBank</div>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="request.html" class="active">Blood Request</a>
+        <a href="status.html">Request Status</a>
+        <a href="../login.html">Logout</a>
+    </aside>
+
+    <main class="dashboard-main">
+        <div class="section-header">
+            <div>
+                <h2>Create Blood Request</h2>
+                <p style="color: #666; font-size: 14px; margin-top: 4px;">Submit a new requisition for blood units to partner blood banks.</p>
+            </div>
+            <a href="status.html" class="btn btn-outline" style="font-size: 13px;">View Request Status</a>
+        </div>
+
+        <div class="form-card" style="max-width: 800px; margin-top: 20px;">
+            <form class="blood-request-form hospital-form">
+
+                <div class="form-group">
+                    <label for="reqBloodGroup">Blood Group Required *</label>
+                    <select id="reqBloodGroup" required>
+                        <option value="">Select Blood Group</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O- (Universal Donor)</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+ (Universal Recipient)</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="reqUnits">Quantity (Units) *</label>
+                    <input type="number" id="reqUnits" min="1" max="25" placeholder="Number of units" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="reqPriority">Priority Level *</label>
+                    <select id="reqPriority" required>
+                        <option value="Normal">Normal (Routine procedure / scheduled)</option>
+                        <option value="Urgent">Urgent (Within 4-6 hours)</option>
+                        <option value="Critical">Critical Emergency (Immediate need)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="reqRequiredDate">Required By (Date)</label>
+                    <input type="date" id="reqRequiredDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="reqPatientId">Patient Case / Ref ID</label>
+                    <input type="text" id="reqPatientId" placeholder="e.g. PAT-9042">
+                </div>
+
+                <div class="form-group">
+                    <label for="reqDepartment">Ward / Department</label>
+                    <select id="reqDepartment">
+                        <option value="Emergency Care">Emergency / Trauma</option>
+                        <option value="ICU">Intensive Care Unit (ICU)</option>
+                        <option value="Surgical Theater">Operation Theater / Surgery</option>
+                        <option value="Oncology">Oncology & Hematology</option>
+                        <option value="Maternity">Maternity & Pediatric</option>
+                    </select>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="reqNotes">Clinical Notes & Remarks</label>
+                    <textarea id="reqNotes" rows="3" placeholder="Provide any additional clinical context, cross-matching requirements, or delivery instructions..."></textarea>
+                </div>
+
+                <button type="submit" class="btn submit-btn" style="grid-column: 1 / -1;">Submit Blood Request</button>
+
+            </form>
+        </div>
+    </main>
+
+</div>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
